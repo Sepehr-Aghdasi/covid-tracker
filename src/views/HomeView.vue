@@ -2,7 +2,7 @@
       <main v-if="!loading">
             <DataTitle :text="title" :dataDate="dataDate" />
             <DataBoxes :stats="stats" />
-            <CountrySelect :countries="countries" />
+            <CountrySelect @get-country="getCountryData" :countries="countries" />
       </main>
 
       <main v-else class="flex flex-col align-center justify-center text-center">
@@ -36,6 +36,10 @@ export default {
                   const response = await fetch("https://api.covid19api.com/summary");
                   const data = await response.json();
                   return data;
+            },
+            getCountryData(country) {
+                  this.stats = country;
+                  this.title = country.Country;
             },
       },
       async created() {

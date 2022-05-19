@@ -1,6 +1,7 @@
 <template>
       <main v-if="!loading">
             <DataTitle :text="title" :dataDate="dataDate" />
+            <DataBoxes :stats="stats" />
       </main>
 
       <main v-else class="flex flex-col align-center justify-center text-center">

@@ -1,5 +1,8 @@
 <template>
-      <main v-if="!loading">show data</main>
+      <main v-if="!loading">
+            <DataTitle :text="title" :dataDate="dataDate" />
+      </main>
+
       <main v-else class="flex flex-col align-center justify-center text-center">
             <div class="text-gray-500 text-3xl mt-10 mb-6">
                   <p>Fetching Data</p>
@@ -9,9 +12,11 @@
 </template>
 
 <script>
+import DataTitle from "@/components/DataTitle.vue";
+
 export default {
       name: "HomeView",
-      components: {},
+      components: { DataTitle },
       data() {
             return {
                   loading: true,
